@@ -1,0 +1,307 @@
+/* p {
+    padding-left: 2em;
+}
+h1 {
+  color: red;
+}
+#header {
+  color: orange;
+}
+*/
+
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: '.';
+  color: red;
+  font-weight: bold;
+}
+
+div > p {
+    font-size: 1.2em;
+}
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+.form-input {
+  width: 5.5em;
+  display: inline-block;
+} */
+
+.parent {
+  /* display: flex; */
+  display: none;
+  flex-wrap: wrap;
+}
+
+.child {
+  width: 25%;
+  height: 200px;
+  border: 2px dotted black;
+  margin: 10px;
+
+  overflow: hidden;
+  overflow-wrap: break-word;
+
+  display: flex;
+}
+
+.child img {
+  width: 100%;
+  margin: auto;
+}
+
+.form-row {
+  margin: 0 15px;
+  
+  display: flex;
+}
+
+.form-label {
+
+}
+
+.form-input {
+
+}
+
+input {  
+  font-size: 1em;
+  border-radius: 5px;
+}
+
+form {
+  width: 450px;
+  height: 150px;
+
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+ol {
+  list-style-type: none;
+  counter-reset: num;
+  counter-reset: num2;
+}
+
+ol li::before {
+  content: counter(num) '.' counter(num2) ') ';
+  counter-increment: num;
+  counter-increment: num2;
+  color: red;
+  font-weight: bold;
+}
+
+.cat {
+  width: 500px;
+  height: 150px;
+  opacity: 0.5;
+  /* background-image: url('http://cdn.iz.ru/sites/default/files/styles/900x506/public/news-2018-09/Depositphotos_9979039_xl-2015.jpg?itok=mH_aXEQa'); */
+  /* background-size: cover; */
+}
+
+.cat img {
+  width: 100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: gray;
+}
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+
+  height: 100vh;
+
+  grid-template-columns: auto 300px;
+  grid-template-rows: 100px 100px auto auto 100px;
+}
+
+.grid-container :is(header, nav, footer) {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.grid-container :is(section, article) {
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.grid-container aside {
+  grid-column-start: 2;
+  grid-column-end: 3;
+
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+.grid-container-2 {  
+  display: grid;
+  gap: 10px;
+
+  height: 100vh;
+
+  grid-template-columns: auto 300px;
+  grid-template-rows: 100px 100px auto auto 100px;
+
+  grid-template-areas: 
+    "header header"
+    "nav nav"
+    "section aside"
+    "artice aside"
+    "footer footer"
+}
+
+.grid-container-2 header {
+  grid-area: header;
+}
+
+.grid-container-2 nav {
+  grid-area: nav;
+}
+
+.grid-container-2 section {
+  grid-area: section;
+}
+
+.grid-container-2 aside {
+  grid-area: aside;
+}
+
+
+.grid-container-2 artice {
+  grid-area: artice;
+}
+
+.grid-container-2 footer {
+  grid-area: footer;
+}
+
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  min-width: 50px;
+  min-height: 50px;
+  background-color: aquamarine;
+}
+
+/* .item1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.item2 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+} */
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.product {
+  display: flex;
+  width: 500px;
+  align-items: center;
+}
+
+.product-image {
+  width: 40%;
+}
+
+.product-image img {
+  height: 50px;
+}
+
+.product-title,
+.product-price,
+.product-count,
+.product-delete {
+  width: 15%;
+}
+
+.product-count input {
+  width: 100%;
+}
+.product-delete {
+  text-align: center;
+}
+
+.store {
+  margin: 5px;
+  display: grid;
+  gap: 10px;
+
+  width: 100%;
+
+  grid-template-columns: 1fr 1fr;
+}
+
+.store-item {
+  margin: 5px;
+  display: grid;
+
+  width: 300px;
+
+  grid-template-areas: 
+   "img img"
+   "title price"
+   "count count"
+   "addBtn addBtn"
+}
+
+.store-item > * {
+  width: 100%;
+}
+
+.store-item__img {
+  grid-area: img;
+}
+
+.store-item__title {  
+  grid-area: title;
+}
+
+.store-item__price {
+  grid-area: price;
+}
+
+.store-item__count {
+  grid-area: count;
+}
+
+.store-item__add {
+  grid-area: addBtn;
+}
+
+.store-item__img img {
+/*  width: 100%; */
+  height: 250px;
+}
+
+input#item:checked ~ .store {
+  color: red;
+}
+
+.button {
+  margin: 5px;
+  padding: 5px;
+  border: 2px solid red;
+}

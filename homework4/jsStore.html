@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Как кодить на HTML</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <div class="container">
+    <section class="store">
+    </section>
+
+    <hr size="2px">
+  
+    <span><b>Корзина:</b></span>
+    <section class="products">
+    </section>
+    <span>
+      <b>Итого: </b><span id="sum">0</span>
+    </span>
+  </div>
+  
+
+  <script>
+
+
+    const productItems = [{
+      title: "Чашка",
+      price: 159,
+      image: "https://prostomayki.com.ua/components/com_virtuemart/shop_image/product/105485_Chashka_s_arbuzom1546744202.jpg",
+      is_inBasket: false,
+    },{
+      title: "Футболка",
+      price: 299,
+      image: "https://maikoff.ua/uploaded/prints_spool/2/p1640l2436w240o80t1c1front0big-muzhskaya-futbolka-arbuz.jpg",
+      is_inBasket: false,
+    },{
+      title: "Кепка",
+      price: 239,
+      image: "https://content.rozetka.com.ua/goods/images/big/4537171.jpg",
+      is_inBasket: false,
+    },{
+      title: "Браслет",
+      price: 249,
+      image: "https://ds1.skrynya.ua/products/p879351_5b27ee4593d7f.jpg",
+      is_inBasket: false,
+    }];
+
+    const products = document.querySelector(".products");
+    const store = document.querySelector(".store");
+    const sum = document.querySelector("#sum");
+
+    fillProducts(productItems);
+
+    function fillProducts(productItems) {
+      if(!productItems) return;
+
+      for (let productItem of productItems) {
+        const storeArticle = createStoreArticle(productItem);
+
+        const addButton = storeArticle.querySelector(".store-item__add button")
+        addButton.addEventListener('click', function() {
+          fillBasket(productItem);
+        });
+
+        store.appendChild(storeArticle);
+      }
+    }
+
+    function fillBasket(productItem) {
+      if(!productItem) return;
+
+      if(!productItem.is_inBasket) {
+        productItem.is_inBasket = true;
+      } else return;
+      
+      const article = createProductArticle(productItem);
+        
+      const countInput = article.querySelector(".product-count input");
+      countInput.addEventListener('change', onProductPriceChanges);
+
+      const deleteButton = article.querySelector(".product-delete button");
+      deleteButton.addEventListener('click', function() {
+        products.removeChild(article);
+        onProductPriceChanges();
+        productItem.is_inBasket = false;
+      });
+
+      products.appendChild(article);
+
+      onProductPriceChanges();
+    }
+
+    function createProductArticle(productItem) {      
+      const article = document.createElement("article");
+        article.classList.add("product");
+
+        article.innerHTML = `
+        <div class="product-image">
+          <img src="${productItem.image}" alt="">
+        </div>
+        <div class="product-title">${productItem.title}</div>
+        <div class="product-price">
+          <span>${productItem.price}</span> грн.
+        </div>
+        <div class="product-count">
+          <input type="number" min="0" value="1">
+        </div>
+        <div class="product-delete">
+          <button class="button">X</button>
+        </div>`;
+
+        return article;
+    }
+
+    function createStoreArticle(productItem) {      
+      const article = document.createElement("article");
+        article.classList.add("store-item");
+
+        article.innerHTML = `
+        <div class="store-item__img">
+          <img src="${productItem.image}" alt="">
+        </div>
+        <div class="store-item__title">${productItem.title}</div>
+        <div class="store-item__price">
+          <span>${productItem.price}</span> грн.
+        </div>
+        <div class="store-item__add">
+          <button class="button">Add</button>
+        </div>`;
+
+        return article;
+    }
+
+    function onProductPriceChanges() {
+      const products = document.querySelectorAll(".product");
+
+      let totalPrice = 0;
+      for(let product of products) {
+        const price = parseFloat(product.querySelector(".product-price span").innerText);
+
+        const productCountInput = product.querySelector(".product-count input");
+        const inputValue = productCountInput.value;
+
+        totalPrice += inputValue * price;
+      }
+
+      sum.innerText = totalPrice;
+    }
+  </script>
+</body>
+</html>
