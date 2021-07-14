@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Pseudoclasses 1</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                font-family: 'Segoe UI', Verdana, sans-serif;
+                background-color: gray;
+            }
+            p {
+                text-align: left;
+                line-height: 100%;
+            }
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                min-width: 768px;
+                margin: 20px auto;
+                text-align: center;
+            }
+            .block {
+                display: inline-block;
+                box-shadow: 6px 6px 16px rgba(0,0,0,0.4);
+                background-color: yellow;
+                border-radius: 5px;
+                width: 27%;
+                padding: 2%;
+                margin: 10px;
+                height: 300px;
+                overflow: auto;
+            }
+            /*Не получается сделать липучку - она обрезается сверху.*/
+            .block::before {
+                display: block;
+                content: "";
+                width: 30%;
+                min-height: 20px;
+                height: 25px;
+                background-color: rgba(0,0,0,0.6);
+                border-top-left-radius: 2px;
+                border-top-right-radius: 2px;
+                margin-top: -30px;
+                margin-left: 35%;
+            }
+            .block h1 {
+                color: yellow;
+                text-shadow: 0 -3px 2px rgba(255,255,255,0.8),
+                            0 3px 2px rgba(0,0,0,0.6);
+                margin: 3px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="block">
+                <h1>Sample 1</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia fugit officia, dignissimos alias et ad autem, tempora sequi adipisci eligendi explicabo obcaecati consectetur! Nostrum sit facere sapiente, dolorem repellendus odit.</p>
+            </div>
+            <div class="block">
+                <h1>Sample 2</h1>
+                <p>Quis voluptatem eum officia veniam suscipit expedita, voluptates labore cupiditate, nostrum aliquam assumenda! Accusamus, minus. Quas quisquam laborum, assumenda dolorum necessitatibus modi tempora vel, doloremque molestias est quam nisi earum!</p>
+            </div>
+            <div class="block">
+                <h1>Sample 3</h1>
+                <p>Architecto corrupti consequatur voluptate assumenda rerum magnam ducimus. Perferendis mollitia culpa facere consequuntur vero illum suscipit. Eum veniam modi nobis!</p>
+            </div>
+        </div>
+    </body>
+</html>

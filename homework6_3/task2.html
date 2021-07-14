@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Projects</title>
+        <style>
+            *, *::before, *::after {
+                box-sizing: border-box;
+            }
+            body, html, div {
+                margin: 0;
+                padding: 0;
+            }
+            body { font-family: sans-serif; }
+            h1 {
+                color: orange;
+                text-align: center;
+            }
+            h2 {
+                font-size: 1.1rem;
+            }
+            h3 {
+                font-size: 0.8em;
+                color: #ccc;
+            }
+            .wrapper {
+                width: 90%;
+                margin: 10px auto;
+            }
+            .block {
+                position: relative;
+                float: left;
+                width: 30%;
+                max-width: 400px;
+                height: 400px;
+                margin-right: 5%;
+                box-shadow: 0 0 14px rgba(0,0,0,0.12), 0 0 4px rgba(0,0,0,0.2);
+            }
+            .block:last-of-type { margin-right: 0; }
+            .block1 { background: url(images/road1.jpg) no-repeat; }
+            .block2 { background: url(images/road2.jpg) no-repeat; }
+            .block3 { background: url(images/road3.jpg) no-repeat; }
+            .block-descr {
+                background-color: #fff;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                height: 40%;
+                padding: 2%;
+                overflow: hidden;
+            }
+            .hidden { visibility: hidden; }
+            .block:hover {
+                border-bottom: 4px solid orange;
+            }
+            .block:hover .block-descr {
+                text-align: center;
+                background-color: rgba(0,0,0,0.5);
+                height: 100%;
+                color: white;
+                padding-left: 0;
+                padding-right: 0;
+                transition: .5s;
+            }
+            .block:hover .block-descr h2 {
+                background-color: orange;
+                color: black;
+                padding: 10px 0;
+            }
+            .block:hover .block-descr p {
+                visibility: visible;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>OUR PROJECTS</h1>
+        <div class="wrapper">
+            <div class="block block1">
+                <div class="block-descr">
+                    <h3>Cobb County, Georgia, United States</h3>
+                    <h2>Project 1</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, libero ipsum? Dolor.</p>
+                    <p class="hidden">Sit quos cum amet voluptatem dolorum? Deleniti fugiat aut officiis omnis eius.</p>
+                </div>
+            </div>
+            <div class="block block2">
+                <div class="block-descr">
+                    <h3>Southwestern, United States</h3>
+                    <h2>Project 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quibusdam quae voluptate!</p>
+                    <p class="hidden">Vel, eius cumque officiis quod cupiditate accusamus consequuntur maiores ipsum labore voluptas.</p>
+                </div>
+            </div>
+            <div class="block block3">
+                <div class="block-descr">
+                    <h3>Dubai, UAE</h3>
+                    <h2>Project 3</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum libero hic odio.</p>
+                    <p class="hidden">Deleniti iste saepe explicabo hic officia quod. Quaerat pariatur reprehenderit placeat dolore!</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

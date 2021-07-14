@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating site process</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            h1, h2 {font-family: Cambria, Georgia, 'Times New Roman', serif}
+            h1 {text-align: center}
+            ul {
+                font-family: Calibri, 'Trebuchet MS', sans-serif;
+            }
+            .container {
+                width: 90%;
+                max-width: 1200px;
+                min-width: 768px;
+                height: 80vh;
+                margin: 20px auto;
+            }
+            .container h1 {
+                height: 9%;
+                margin: 0;
+                margin-bottom: 1%
+            }
+            .container::before, .container::after {
+                content: "";
+                display: table;
+            }
+            .container::after {
+                clear: both;
+            }
+            .block {
+                float: left;
+                width: 50%;
+                height: 45%;
+                min-height: 45%;
+                margin: 0;
+                padding: 1%;
+                border: 4px double red;
+                overflow: auto;
+            }
+            .block:nth-of-type(2),.block:nth-of-type(4) {
+                border-left: 0;
+            }
+            .block:nth-of-type(3),.block:nth-of-type(4) {
+                border-top: 0;
+            }
+            .block ul {
+                list-style-type: none;
+                padding-left: 40px;
+                margin: 0.5em 0;
+            }
+            .block ul li::before {
+                content: "- ";
+                color: red;
+                font-weight: bold;
+            }
+            .block ul li:nth-child(even) {
+                color: red;
+            }
+            .top::before, .top::after {
+                content: "";
+                display: table;
+            }
+            .top::after {
+                clear: both;
+            }
+            .top h2 {
+                margin: 0.5em 0;
+            }
+            .number {
+                border: 2px solid red;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                float: left;
+                text-align: center;
+                margin: 0.5em 10px;
+                margin-left: 0;
+                /*vertical-align: middle;*/
+            }
+            .number h2 {
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Процесс создания сайта</h1>
+            <div class="block">
+                <div class="top">
+                    <div class="number">
+                        <h2>1</h2>
+                    </div>
+                    <h2>Идея сайта. Создание psd-макета</h2>
+                </div>
+                <ul>
+                    <li>Создание идеи</li>
+                    <li>Разработка структуры проекта</li>
+                    <li>Проработка макета проекта</li>
+                    <li>Создание psd-макета</li>
+                </ul>
+            </div>
+            <div class="block">
+                <div class="top">
+                    <div class="number">
+                        <h2>2</h2>
+                    </div>
+                    <h2>Вёрстка сайта по макету</h2>
+                </div>
+                <ul>
+                    <li>Выбор схемы верстки.</li>
+                    <li>Использование модульной сетки и фреймворков, которые ее предоставляют.</li>
+                    <li>Адаптивная верстка сайта под различные разрешения экранов</li>
+                    <li>Использование принципов Mobile First, Progressive Enhacement или Graceful Degradation</li>
+                </ul>
+            </div>
+            <div class="block">
+                <div class="top">
+                    <div class="number">
+                        <h2>3</h2>
+                    </div>
+                    <h2>Выбор CMS для сайта</h2>
+                </div>
+                <ul>
+                    <li>Оценка необходимости переноса html-макета на одну из CMS.</li>
+                    <li>Преобразование html-файлов в php, разделение файлов для повторного использования</li>
+                    <li>Добавление функционала в шаблон</li>
+                </ul>
+            </div>
+            <div class="block">
+                <div class="top">
+                    <div class="number">
+                        <h2>4</h2>
+                    </div>
+                    <h2>Размещение сайта на хостинге</h2>
+                </div>
+                <ul>
+                    <li>Выбор площадки для размещения сайта.</li>
+                    <li>Выбор подходящего хостинг-плана</li>
+                    <li>Выбор и регистрация доменного имени</li>
+                    <li>Перенос файлов с локального компьютера на хостинг</li>
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>
