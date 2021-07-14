@@ -19,6 +19,7 @@
                 width: 90%;
                 max-width: 1200px;
                 min-width: 768px;
+                height: 360px;
                 margin: 20px auto;
                 text-align: center;
             }
@@ -31,20 +32,20 @@
                 padding: 2%;
                 margin: 10px;
                 height: 300px;
-                overflow: auto;
+                vertical-align: top;
             }
             /*Не получается сделать липучку - она обрезается сверху.*/
             .block::before {
                 display: block;
                 content: "";
-                width: 30%;
+                width: 40%;
                 min-height: 20px;
-                height: 25px;
+                height: 30px;
                 background-color: rgba(0,0,0,0.6);
-                border-top-left-radius: 2px;
-                border-top-right-radius: 2px;
-                margin-top: -30px;
-                margin-left: 35%;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                margin-top: -35px;
+                margin-left: 30%;
             }
             .block h1 {
                 color: yellow;
